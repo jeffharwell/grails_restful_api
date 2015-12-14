@@ -8,6 +8,9 @@ import groovy.sql.Sql
 class ApitestoneController {
     static responseFormats = ['json']
 
+    // Inject our key service
+    def SearchInterfaceService
+
     def index() {
         println("index for Apitestone controller")
         if (request.authenticated) {
@@ -53,6 +56,7 @@ class ApitestoneController {
          )
         */
 
+        /*
         def db_server = grailsApplication.config.getProperty('external.db_server')
         def db_name = grailsApplication.config.getProperty('external.db_name')
         def db_user = grailsApplication.config.getProperty('external.db_user')
@@ -62,6 +66,9 @@ class ApitestoneController {
         def hit_response = sql.dataSet("responses")
         def data = [assignmentid:'12',hitid:'34',workerid:'56',response:'my response']
         hit_response.add(data)
+        */
+        SearchInterfaceService.recordResults(13,35,57,'my JSON string')
+        
         def r = ["write":"successfull"]
         respond r
     }

@@ -46,8 +46,11 @@ class CASToJWTInterceptor {
     CASToJWTInterceptor() {
         //See https://grails.github.io/grails-doc/latest/guide/single.html#interceptorMatching
         // The matcher expects lower case >:| ... at least for the first letter >:(
-        matchAll().except( controller: "authError" ).except( controller: "apitestone", action: "testEnv" ).except( controller:
-"authForbidden" ).except( controller: "apitestone", action: "testJsonWrite" )
+        matchAll().except( controller: "authError" )
+                  .except( controller: "apitestone", action: "testEnv" )
+                  .except( controller: "authForbidden" )
+                  .except( controller: "apitestone", action: "testJsonWrite" )
+                  .except( controller: "searchInterface" )
         //matchAll().except( controller: "authError" )
         //match( controller: "authError" )
         //match( controller: "apitestone" )

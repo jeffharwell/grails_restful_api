@@ -26,7 +26,9 @@ class CorsInterceptor {
                                "http://127.0.0.1:9000",
                                "http://docker1dev.fuller.edu:9000",
                                "http://192.168.27.81:9000",
-                               "https://docker1.fuller.edu"]
+                               "https://docker1.fuller.edu",
+                               "http://triple1.jeffharwell.com",
+                               "https://triple1.jeffharwell.com"]
     
         if (origin in allowed_origins) {
             header ("Access-Control-Allow-Origin", origin )
