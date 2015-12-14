@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo -n "Point to prod or ban8test? (prod|ban8test): "
+read ban_env
+
+if [ $ban_env = "prod" ]; then
+	BANNER_SERVER="eve.fuller.edu"
+	BANNER_SID="prod"
+	BANNER_USER="XXXXXXXXXXXX"
+	BANNER_PASSWORD="XXXXXXXXXXXXXX"
+elif [ $ban_env = "ban8test" ]; then
+	BANNER_SERVER="evetest.fuller.edu"
+	BANNER_SID="ban8test"
+	BANNER_USER="XXXXXXXXXXX"
+	BANNER_PASSWORD="XXXXXXXXXX"
+else
+	echo "${ban_env} is not a valid choice ... try again."
+	exit 1
+fi
+
+export EDW_SERVER="enrollment.fuller.edu"
+export EDW_DB="edw"
+export EDW_USER="XXXXXXXXXXX"
+export EDW_PASSWORD="XXXXXXXXXXX"
+
+export FDW_SERVER="fdw.fuller.edu"
+export FDW_DB="fdw_devel"
+export FDW_USER="XXXXXXXXXX"
+export FDW_PASSWORD="XXXXXXXXXXXX"
+
+
+export BANNER_SERVER
+export BANNER_SID
+export BANNER_USER
+export BANNER_PASSWORD
+echo "Finished setting up the environment for \"${ban_env}\""

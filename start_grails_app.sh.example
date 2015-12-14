@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## These environmental variable are needed by the grails app to connect to Banner and make
+## the changes to FTS.PWBEMPL_BASE
+## Grails will pick up these variable
+
+export BANNER_SERVER="evetest.fuller.edu"
+export BANNER_SID="Ban8test"
+export BANNER_USER="FTS"
+export BANNER_PASSWORD="XXXXXX"
+
+## All the docs are wrong, this is the way to change host and port
+## now in grails 3.0.4.
+## https://github.com/grails/grails-core/issues/8983
+## and https://github.com/grails/grails-profile-repository/commit/d91c4871ad6d5a053c6b5b2de8fcf4a162f4d150
+echo "run:"
+echo "grails run-app --port=8080 --host=0.0.0.0"
+echo "  grails will say it is only listening on localhost but netstat shows it uses all addresses"

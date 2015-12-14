@@ -1,0 +1,6 @@
+.gradle
+build
+*.log
+.*.swp
+start_grails_app.sh
+/set_environment.sh
