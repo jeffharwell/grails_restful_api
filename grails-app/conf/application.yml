@@ -16,6 +16,11 @@ external:
     fdw_db: ${FDW_DB}
     fdw_user: ${FDW_USER}
     fdw_password: ${FDW_PASSWORD}
+    db_server: ${DB_SERVER}
+    db_name: ${DB_NAME}
+    db_user: ${DB_USER}
+    db_password: ${DB_PASSWORD}
+
 info:
     app:
         name: '@info.app.name@'

@@ -38,4 +38,28 @@ class ApitestoneController {
         def testmap = [banner_server:banner_server, banner_sid:banner_sid, banner_user:banner_user]
         respond testmap
     }
+
+    def testJsonWrite() {
+        /* Test our JSON write */
+        /*
+         create table responses (
+            id BIGINT NOT NULL AUTO_INCREMENT,
+            assignmentid varchar(255) NOT NULL,
+            hitid varchar(255) NOT NULL,
+            workerid varchar(255) NOT NULL,
+            response varchar(4000),
+            PRIMARY KEY (id)
+         )
+        */
+
+        def db_server = grailsApplication.config.getProperty('external.db_server')
+        def db_name = grailsApplication.config.getProperty('external.db_name')
+        def db_user = grailsApplication.config.getProperty('external.db_user')
+        def db_password = grailsApplication.config.getProperty('external.db_password')
+
+        def sql = Sql.newInstance("jdbc:mysql://${db_server}:3306/${db_name}", db_user, db_password, "com.mysql.jdbc.Driver")
+        def hit_response = sql.dataSet("responses")
+        def data = [assignmentid:'12',hitid:'34',workerid:'56',response:'my response']
+        hit_response.add(data)
+    }
 }

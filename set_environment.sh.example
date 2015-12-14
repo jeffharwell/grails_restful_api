@@ -28,6 +28,12 @@ export FDW_DB="fdw_devel"
 export FDW_USER="XXXXXXXXXX"
 export FDW_PASSWORD="XXXXXXXXXXXX"
 
+## Generic server being used to provide state
+## not through the GORM
+export DB_SERVER="xx"
+export DB_NAME="xx"
+export DB_USER="xxxx"
+export DB_PASSWORD="xxx"
 
 export BANNER_SERVER
 export BANNER_SID
