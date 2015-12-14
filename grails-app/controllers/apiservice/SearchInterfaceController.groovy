@@ -31,7 +31,8 @@ class SearchInterfaceController {
                                             jsonObject.testdata.workerid,
                                             userquery)
 
-        def r = ["status":"success"]
+        def whichsurvey = SearchInterfaceService.whichSurvey()
+        def r = ["status":"success","survey_number":"${whichsurvey}"]
         respond r
     }
 

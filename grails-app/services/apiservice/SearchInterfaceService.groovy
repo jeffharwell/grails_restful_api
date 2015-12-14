@@ -1,6 +1,7 @@
 package apiservice
 
 import grails.transaction.Transactional
+import static groovyx.gpars.actor.Actors.actor
 import groovy.sql.Sql
 
 @Transactional
@@ -8,6 +9,20 @@ class SearchInterfaceService {
     def grailsApplication
 
     def hit_response
+
+    def whichsurvey = actor {
+        def counter = 0
+        loop {
+            react {
+                reply counter
+                if (counter == 0) {
+                    counter = 1;
+                } else {
+                    counter = 0;
+                }
+            }
+        }
+    }
 
     def openDatabase() {
         // turns out that grailsApplication is null when the service is initialized, so we cannot
@@ -19,6 +34,11 @@ class SearchInterfaceService {
 
         def sql = Sql.newInstance("jdbc:mysql://${db_server}:3306/${db_name}", db_user, db_password, "com.mysql.jdbc.Driver")
         hit_response = sql.dataSet("responses")
+    }
+
+    def whichSurvey() {
+        def survey_number =  whichsurvey.sendAndWait('hello')
+        return survey_number
     }
 
     def writeResults(assignmentid, hitid, workerid, response) {
