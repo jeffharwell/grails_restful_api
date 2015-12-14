@@ -2,6 +2,7 @@ package apiservice
 import grails.transaction.*
 import static org.springframework.http.HttpStatus.*
 import static org.springframework.http.HttpMethod.*
+import groovy.sql.Sql
 
 @Transactional(readOnly = true)
 class ApitestoneController {
@@ -61,5 +62,7 @@ class ApitestoneController {
         def hit_response = sql.dataSet("responses")
         def data = [assignmentid:'12',hitid:'34',workerid:'56',response:'my response']
         hit_response.add(data)
+        def r = ["write":"successfull"]
+        respond r
     }
 }

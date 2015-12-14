@@ -64,6 +64,8 @@ dependencies {
     compile "org.hibernate:hibernate-ehcache"
     compile "org.grails.plugins:scaffolding"
 
+    compile "mysql:mysql-connector-java"
+
     // My custom wrapper for opencsv ... and some other stuff
     compile files("customJars/harwell_utilities-0.0.11.jar")
     //compile 'com.opencsv.CSVReader:opencsv-3.1'
