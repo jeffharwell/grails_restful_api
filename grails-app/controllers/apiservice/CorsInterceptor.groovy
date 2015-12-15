@@ -14,6 +14,7 @@ class CorsInterceptor {
     }
 
     boolean before() {
+        println "In CorsInterceptor"
         /**
          * You cannot specify more than one allowed origin in the header, so instead
          * validate from a list and if the clients origin matches an allowed origin 
@@ -29,8 +30,9 @@ class CorsInterceptor {
                                "https://docker1.fuller.edu",
                                "http://triple1.jeffharwell.com",
                                "https://triple1.jeffharwell.com"]
-    
+        println "Checking Origin ${origin}"    
         if (origin in allowed_origins) {
+            println "Allowing origin ${origin}"
             header ("Access-Control-Allow-Origin", origin )
             header ("Access-Control-Allow-Credentials", "true")
             header ("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE")
